@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 class GraphHandler:
 
     def __init__(self, rowers):
@@ -7,5 +9,14 @@ class GraphHandler:
     def plot(self):
         for rowerIndex in self.rowers:
             rower = self.rowers[rowerIndex]
-            graphData = rower.getGraphData()
-            print(graphData['rx'])
+            rowerGraphData = rower.getGraphData()
+            
+            graphData = rowerGraphData['rx']
+
+            readings = graphData.getReadings()
+            datetimes = graphData.getDatetimes()
+
+            plt.plot(datetimes, readings)
+            plt.show()
+
+            break

@@ -15,4 +15,4 @@ class GraphData:
         return self.measurementReadings
 
     def getDatetimes(self):
-        return self.measurementReadings
+        return self.measurementDatetimes
