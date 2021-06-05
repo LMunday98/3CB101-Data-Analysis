@@ -4,15 +4,32 @@ class GraphData:
         self.rower = rower
         self.measurement = measurement
 
-        self.measurementReadings = []
-        self.measurementDatetimes = []
+        self.data = {}
+        self.datetimes = []
+        self.readings = []
+        
     
     def addData(self, reading, datetime):
-        self.measurementReadings.append(reading)
-        self.measurementDatetimes.append(datetime)
+        if datetime not in self.data:
+            self.datetimes.append(datetime)
+            self.data[datetime] = []
+        self.data[datetime].append(reading)
+
+    def calcAvg(self):
+        for datetime in self.datetimes:
+            data = self.data[datetime]
+
+            avg = sum(data) / len(data)
+            self.readings.append(avg)
+
+        # print("\n\n")
+        # print("Rower index:", self.rower)
+        # print("Measurement:", self.measurement)
+        # print("Len readings:", len(self.readings))
+        # print("Len datetimes:", len(self.datetimes))
 
     def getReadings(self):
-        return self.measurementReadings
+        return self.readings
 
     def getDatetimes(self):
-        return self.measurementDatetimes
+        return self.datetimes

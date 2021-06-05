@@ -41,3 +41,7 @@ class Rower:
 
     def getGraphData(self):
         return self.graphData
+
+    def calcAvgData(self):
+        for measurementIndex in self.measurements:
+            self.graphData[measurementIndex].calcAvg()

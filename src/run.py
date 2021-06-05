@@ -1,6 +1,7 @@
 from controllers.fileHandler import FileHandler
 from controllers.graphHandler import GraphHandler
 from models.rower import Rower
+from util.avg import Avg
 from util.timer import Timer
 
 rowers = {}
@@ -13,5 +14,12 @@ fileHandler = FileHandler(rowers)
 fileHandler.readFile()
 fileTimer.end()
 
+avgTimer = Timer("Calculating avgs")
+avg = Avg(rowers)
+avg.calcAvgs()
+avgTimer.end()
+
+graphTimer = Timer("Graphing")
 graphHandler = GraphHandler(rowers)
 graphHandler.plot()
+graphTimer.end()

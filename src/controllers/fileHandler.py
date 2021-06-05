@@ -12,6 +12,7 @@ class FileHandler:
         pos = 0
 
         for file in self.inputFiles:
+            
             with open(self.dataRoot + file) as f:
                 lines = f.readlines()
                 
@@ -27,6 +28,4 @@ class FileHandler:
                         rower = self.rowers[rower_index]
                         rower.addData(rowerData)
                     pos = 0
-                    
-
-                    
+                
