@@ -2,7 +2,8 @@ from os import walk
 import json
 
 class FileHandler:
-    def __init__(self):
+    def __init__(self, rowers):
+        self.rowers = rowers
         self.dataRoot = "data/input/"
         _, _, self.inputFiles = next(walk(self.dataRoot))
 
@@ -22,9 +23,10 @@ class FileHandler:
                         if rowerData["info"]["ip"] == "0.0.0.0":
                             pass
 
-                        print (rowerData)
+                        rower_index = rowerData["info"]["rower_index"]
+                        rower = self.rowers[rower_index]
+                        rower.addData(rowerData)
                     pos = 0
-                    # break
                     
 
                     

@@ -1,4 +1,10 @@
 from controllers.fileHandler import FileHandler
+from models.rower import Rower
 
-fileHandler = FileHandler()
+rowers = {}
+
+for index in range(4):
+    rowers[index] = Rower(index)
+    
+fileHandler = FileHandler(rowers)
 fileHandler.readFile()
