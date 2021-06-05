@@ -8,9 +8,8 @@ class GraphData:
         self.measurementDatetimes = []
     
     def addData(self, reading, datetime):
-        print("\n\n", self.rower, "\t", self.measurement, "\t", reading, "\t", datetime)
-        # self.measurementReadings.append(reading)
-        # self.measurementDatetimes.append(datetime)
+        self.measurementReadings.append(reading)
+        self.measurementDatetimes.append(datetime)
 
     def getReadings(self):
         return self.measurementReadings

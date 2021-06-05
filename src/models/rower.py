@@ -38,3 +38,6 @@ class Rower:
 
     def getSeat(self):
         return self.seat
+
+    def getGraphData(self):
+        return self.graphData
