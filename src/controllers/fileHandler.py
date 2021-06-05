@@ -8,7 +8,7 @@ class FileHandler:
         self.dataRoot = "data/input/"
         _, _, self.inputFiles = next(walk(self.dataRoot))
 
-        self.start = datetime(2021, 6, 4, 8, 30)
+        self.start = datetime(2021, 6, 4, 8, 44)
         self.finish = datetime(2021, 6, 4, 9, 51)
 
     def readFile(self):

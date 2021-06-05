@@ -4,6 +4,7 @@ class Rower:
     def __init__(self, rower_index):
         self.rower_index = rower_index
         self.seat = self.getSeatName(rower_index)
+        self.flip = False
         self.measurements = ['sax', 'say', 'saz', 'rx', 'ry']
         self.graphData = {}
 
@@ -44,4 +45,7 @@ class Rower:
 
     def calcAvgData(self):
         for measurementIndex in self.measurements:
-            self.graphData[measurementIndex].calcAvg()
+            self.graphData[measurementIndex].calcAvg(self.flip)
+
+    def setFlip(self, flip):
+        self.flip = flip

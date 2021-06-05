@@ -15,11 +15,13 @@ class GraphData:
             self.data[datetime] = []
         self.data[datetime].append(reading)
 
-    def calcAvg(self):
+    def calcAvg(self, flip):
         for datetime in self.datetimes:
             data = self.data[datetime]
 
             avg = sum(data) / len(data)
+            if flip:
+                avg = avg * -1
             self.readings.append(avg)
 
         print("\n\n")
