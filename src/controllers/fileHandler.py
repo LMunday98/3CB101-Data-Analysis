@@ -1,15 +1,16 @@
 import json
+import config
 from os import walk
 from datetime import datetime
 
 class FileHandler:
     def __init__(self, rowers):
         self.rowers = rowers
-        self.dataRoot = "data/input/"
+        self.dataRoot = config.inputDir
         _, _, self.inputFiles = next(walk(self.dataRoot))
 
-        self.start = datetime(2021, 6, 4, 8, 44)
-        self.finish = datetime(2021, 6, 4, 9, 51)
+        self.start = config.startTime
+        self.finish = config.finishTime
 
     def readFile(self):
         dec = json.JSONDecoder()

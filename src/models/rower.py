@@ -1,3 +1,4 @@
+import config
 from models.graphData import GraphData
 
 class Rower:
@@ -5,7 +6,7 @@ class Rower:
         self.rower_index = rower_index
         self.seat = self.getSeatName(rower_index)
         self.flip = False
-        self.measurements = ['sax', 'say', 'saz', 'rx', 'ry']
+        self.measurements = config.graphedMeasurements
         self.graphData = {}
 
         self.setup()

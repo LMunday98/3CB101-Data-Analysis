@@ -1,3 +1,4 @@
+import config
 from controllers.fileHandler import FileHandler
 from controllers.graphHandler import GraphHandler
 from models.rower import Rower
@@ -8,11 +9,7 @@ rowers = {}
 
 for index in range(4):
     rowers[index] = Rower(index)
-
-rowers[0].setFlip(True)
-rowers[1].setFlip(False)
-rowers[2].setFlip(False)
-rowers[3].setFlip(False)
+    rowers[index].setFlip(config.flip[index])
 
 fileTimer = Timer("File parsing")
 fileHandler = FileHandler(rowers)
