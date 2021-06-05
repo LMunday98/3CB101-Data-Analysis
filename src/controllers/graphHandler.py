@@ -13,14 +13,18 @@ class GraphHandler:
         self.graphMeasurements = config.graphedMeasurements
         self.saveTime = datetime.now().strftime('%d-%m-%y %H:%M:%S')
         self.outputDir = config.outputDir + str(self.saveTime) + '/'
+        self.fileFormats = ['png', 'svg']
 
     def plot(self):
         Dir().createDir(self.outputDir)
 
+        for fileFormat in self.fileFormats:
+            Dir().createDir(self.outputDir + fileFormat + '/')
+
         for measurement in self.graphMeasurements:
             measurementTimer = Timer("Plotting " + measurement)
             labels = self.getLabel(measurement)
-            Graph(self.rowers, labels, measurement, self.outputDir, ['png', 'svg'])
+            Graph(self.rowers, labels, measurement, self.outputDir, self.fileFormats)
             measurementTimer.end()
 
     def getLabel(self, measurement):
