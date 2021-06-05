@@ -3,17 +3,18 @@ import matplotlib.pyplot as plt
 
 class Graph:
 
-    def __init__(self, rowers, labels, measurement):
+    def __init__(self, rowers, labels, measurement, graphOutputDir, fileFormats):
+        plt.figure(measurement)
+
         for rowerIndex in rowers:
             rower = rowers[rowerIndex]
+
             rowerGraphData = rower.getGraphData()
-            
             graphData = rowerGraphData[measurement]
 
             readings = graphData.getReadings()
             datetimes = graphData.getDatetimes()
-            
-
+        
             plt.plot(datetimes, readings, label = rower.getSeat())
 
         
@@ -22,6 +23,8 @@ class Graph:
         plt.xlabel('Measurement Date Time (hh:mm:ss)')
         plt.legend()
         # plt.show()
-        plt.savefig(config.outputDir + measurement + '.png', dpi=300)
+        for fileFormat in fileFormats:
+            fileName = graphOutputDir + measurement + '.' + fileFormat
+            plt.savefig(fileName, dpi=300, format=fileFormat)
 
         

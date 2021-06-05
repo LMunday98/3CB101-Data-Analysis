@@ -25,11 +25,11 @@ class GraphData:
                 avg = avg * -1
             self.readings.append(avg)
 
-        print("\n\n")
-        print("Rower index:", self.rower)
-        print("Measurement:", self.measurement)
-        print("Len readings:", len(self.readings))
-        print("Len datetimes:", len(self.datetimes))
+        # print("\n\n")
+        # print("Rower index:", self.rower)
+        # print("Measurement:", self.measurement)
+        # print("Len readings:", len(self.readings))
+        # print("Len datetimes:", len(self.datetimes))
 
     def getReadings(self):
         return self.readings

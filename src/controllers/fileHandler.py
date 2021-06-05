@@ -33,7 +33,7 @@ class FileHandler:
                         datetimeObj = datetime.strptime(datetimeString, '%d/%m/%y %H:%M:%S')
 
                         if (self.start < datetimeObj) and (datetimeObj < self.finish):
-                            print(datetimeObj)
+                            # print(datetimeObj)
                             rower_index = rowerData["info"]["rower_index"]
                             rower = self.rowers[rower_index]
                             rower.addData(rowerData)

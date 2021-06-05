@@ -5,6 +5,8 @@ from models.rower import Rower
 from util.avg import Avg
 from util.timer import Timer
 
+runTimer = Timer("Running program")
+
 rowers = {}
 
 for index in range(4):
@@ -25,3 +27,5 @@ graphTimer = Timer("Graphing")
 graphHandler = GraphHandler(rowers)
 graphHandler.plot()
 graphTimer.end()
+
+runTimer.end()

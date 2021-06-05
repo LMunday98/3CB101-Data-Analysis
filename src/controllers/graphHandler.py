@@ -1,5 +1,5 @@
 import config
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 from models.graph import Graph
 from util.timer import Timer
@@ -20,27 +20,7 @@ class GraphHandler:
         for measurement in self.graphMeasurements:
             measurementTimer = Timer("Plotting " + measurement)
             labels = self.getLabel(measurement)
-
-            for rowerIndex in self.rowers:
-                rower = self.rowers[rowerIndex]
-                rowerGraphData = rower.getGraphData()
-                
-                graphData = rowerGraphData[measurement]
-
-                readings = graphData.getReadings()
-                datetimes = graphData.getDatetimes()
-                
-
-                plt.plot(datetimes, readings, label = rower.getSeat())
-
-            
-            
-            plt.ylabel(measurement + labels["force"] + labels['unit'])
-            plt.xlabel('Measurement Date Time (hh:mm:ss)')
-            plt.legend()
-            # plt.show()
-            plt.savefig(self.outputDir + measurement + '.svg', dpi=300, format='svg')
-
+            Graph(self.rowers, labels, measurement, self.outputDir, ['png', 'svg'])
             measurementTimer.end()
 
     def getLabel(self, measurement):
