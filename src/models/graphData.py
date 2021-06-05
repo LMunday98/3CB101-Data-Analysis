@@ -10,6 +10,7 @@ class GraphData:
         
     
     def addData(self, reading, datetime):
+        datetime = datetime.split(" ")[1]
         if datetime not in self.data:
             self.datetimes.append(datetime)
             self.data[datetime] = []
