@@ -21,6 +21,6 @@ class GraphHandler:
 
             plt.plot(datetimes, readings, label = rower.getSeat())
         plt.ylabel(self.graphMeasurement + ' Rotation (°)')
-        plt.xlabel('Measurement Date Time (dd/mm/yyyy hh:mm:ss)')
+        plt.xlabel('Measurement Date Time (hh:mm:ss)')
         plt.legend()
         plt.show()

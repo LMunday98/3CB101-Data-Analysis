@@ -9,7 +9,7 @@ rowers = {}
 for index in range(4):
     rowers[index] = Rower(index)
 
-rowers[0].setFlip(False)
+rowers[0].setFlip(True)
 rowers[1].setFlip(False)
 rowers[2].setFlip(False)
 rowers[3].setFlip(False)
