@@ -7,18 +7,20 @@ class GraphHandler:
         self.graphMeasurement = 'rx'
 
     def plot(self):
+        datetimes = self.rowers[0].getGraphData()[self.graphMeasurement].getDatetimes()
+
         for rowerIndex in self.rowers:
-            rower = self.rowers[rowerIndex]
+            rower = self.rowers[0]
             rowerGraphData = rower.getGraphData()
             
             graphData = rowerGraphData[self.graphMeasurement]
 
             readings = graphData.getReadings()
-            datetimes = graphData.getDatetimes()
+            
 
-            plt.plot(datetimes, readings)
-            plt.ylabel(self.graphMeasurement + ' Rotation (°)')
-            plt.xlabel('Measurement Date Time (dd/mm/yyyy hh:mm:ss)')
-            plt.show()
-
+            plt.plot(datetimes, readings, label = rower.getSeat())
             break
+        plt.ylabel(self.graphMeasurement + ' Rotation (°)')
+        plt.xlabel('Measurement Date Time (dd/mm/yyyy hh:mm:ss)')
+        plt.legend()
+        plt.show()
